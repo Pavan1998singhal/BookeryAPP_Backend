@@ -10,7 +10,9 @@ app.use(bodyParser.json());
 
 // make images folder publicly so that it is accessible or get
 app.use('/assests/uploads/images' ,express.static('assests/uploads/images'))
+app.use('/assests/uploads/books' ,express.static('assests/uploads/books'))
 // app.use('../../Frontend_With_Reactjs/bookery-app/public/assests/uploads/images' ,express.static('../../Frontend_With_Reactjs/bookery-app/public/assests/uploads/images'))
+
 
 // Connect with DB
 const connectDB = require('../Backend_With_Nodejs/dbConnection')
@@ -32,6 +34,11 @@ app.use('/login', authenticateRouter)
 // Route for Users
 const usersRouter = require('../Backend_With_Nodejs/routes/users')
 app.use('/users', usersRouter)
+
+
+// Route for Books
+const booksRouter = require('../Backend_With_Nodejs/routes/books')
+app.use('/books', booksRouter)
 
 
 app.listen(8000, () => {
